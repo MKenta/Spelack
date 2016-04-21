@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419112732) do
+ActiveRecord::Schema.define(version: 20160421061228) do
 
   create_table "channels", force: :cascade do |t|
-    t.string   "name",            limit: 190,                 null: false
-    t.boolean  "is_private",                  default: false, null: false
-    t.string   "description",     limit: 255
-    t.integer  "created_user_id", limit: 4
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.string   "name",        limit: 190,             null: false
+    t.integer  "status",      limit: 4,   default: 0, null: false
+    t.string   "description", limit: 255
+    t.integer  "author_id",   limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "channels", ["name"], name: "index_channels_on_name", unique: true, using: :btree

@@ -54,6 +54,16 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.9.0)
     byebug (8.2.4)
+    capybara (2.7.0)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    capybara-screenshot (1.0.12)
+      capybara (>= 1.0, < 3)
+      launchy
     carrierwave (0.11.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -61,6 +71,7 @@ GEM
       mime-types (>= 1.16)
     climate_control (0.0.3)
       activesupport (>= 3.0)
+    cliver (0.3.2)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.1)
@@ -128,8 +139,11 @@ GEM
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
     json (1.8.3)
+    json_expressions (0.8.3)
     jwt (1.5.4)
     kgio (2.10.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     link_thumbnailer (3.1.2)
       activesupport (>= 3.0)
       image_info (~> 1.0)
@@ -175,6 +189,11 @@ GEM
       mimemagic (= 0.3.0)
     parser (2.3.0.7)
       ast (~> 2.2)
+    poltergeist (1.9.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -301,6 +320,8 @@ GEM
       rack
       raindrops (~> 0.7)
     uniform_notifier (1.9.0)
+    validation_examples_matcher (1.0.1)
+      rspec-expectations (~> 3.0)
     video_info (2.6.0)
       addressable (~> 2.3)
       htmlentities (~> 4.3)
@@ -316,7 +337,12 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    websocket-driver (0.6.3)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
     xml-simple (1.1.5)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
     yard (0.8.7.6)
 
 PLATFORMS
@@ -326,6 +352,8 @@ DEPENDENCIES
   amazon-ec2!
   better_errors!
   bullet!
+  capybara!
+  capybara-screenshot!
   carrierwave!
   coffee-rails!
   database_rewinder!
@@ -334,9 +362,12 @@ DEPENDENCIES
   ffaker!
   google-api-client!
   jbuilder!
+  json_expressions!
+  launchy!
   link_thumbnailer!
   mysql2 (~> 0.3.20)!
   paperclip!
+  poltergeist!
   pry-byebug!
   pry-rails!
   rails (= 4.2.4)!
@@ -348,6 +379,7 @@ DEPENDENCIES
   slim-rails!
   uglifier!
   unicorn (~> 4.9.0)!
+  validation_examples_matcher!
   web-console (~> 2.0)!
   yard!
 

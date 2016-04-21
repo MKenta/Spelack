@@ -27,15 +27,21 @@ source 'https://rubygems.org' do
     gem 'bullet'
     gem 'factory_girl_rails'
     gem 'ffaker'
+    gem 'launchy'
     gem 'pry-byebug'
     gem 'pry-rails'
     gem 'rubocop', require: false
   end
 
   group :test do
+    gem 'capybara'
+    gem 'capybara-screenshot'
     gem 'database_rewinder'
+    gem 'json_expressions'
     gem 'rspec-rails'
     gem 'rspec_junit_formatter'
+    gem 'poltergeist'
+    gem 'validation_examples_matcher'
     gem 'simplecov', require: false
   end
 
