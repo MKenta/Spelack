@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'action_dispatch'
 Dir[Rails.root.join('spec/supports/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -21,4 +22,10 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   # for Devise : Deviseを使用している時にsign in/outを取るためのヘルパーをinclude
   include Warden::Test::Helpers
+
+  config.include ActionDispatch::TestProcess
+  FactoryGirl::SyntaxRunner.class_eval do
+    include ActionDispatch::TestProcess
+  end
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 end

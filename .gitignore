@@ -181,3 +181,5 @@ sftp-config.json
 /.yardoc
 /doc
 
+# public/system/ files
+/public/system/users/avatars/

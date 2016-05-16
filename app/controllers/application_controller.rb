@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # :nocov:
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :middle_name, :last_name, :nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :middle_name, :last_name, :nickname, :avatar])
   end
   # :nocov:
 
