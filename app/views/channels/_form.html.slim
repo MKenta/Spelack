@@ -1,0 +1,24 @@
+body.clannel_boby
+  header.clannel_header
+    a href=channels_path
+      span.glyphicon.glyphicon-home.home_icon[aria-hidden="true"]
+  .form-content
+    .container
+      .row
+        .col-md-6.col-md-offset-3
+          .well.row.pt-2x.pb-3x.bk-light
+            h1.text-bold.mt-4x.text-center
+              | Create a news channel
+            = form_for @channel do |f|
+              .field
+                = f.label :name, class:"text-uppercase text-sm"
+                br
+                = f.text_field :name, size: '50', class: "form-control mb"
+              .field
+                = f.label :description, class:"text-uppercase text-sm"
+                br
+                = f.text_area :description, size: '50x5', class: "form-control mb"
+              .checkbox.checkbox-circle.checkbox-info
+                = f.check_box :status
+                = f.label :status, 'private?'
+              .actions = f.submit "Create channel", class:"btn btn-primary btn-block"

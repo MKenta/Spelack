@@ -1,0 +1,14 @@
+.ts-sidebar-menu .channel_button {
+  display: block!important;
+  text-decoration: none!important;
+  padding: 2px 15px!important;
+  color: #fff!important;
+  background-color: #2C3136!important;
+  border: none!important;
+  width: 250px;
+  text-align: left;
+}
+
+.ts-sidebar-menu .channel_button:hover {
+  background-color: #000!important;
+}

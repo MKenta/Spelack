@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Channel.create(
+        id: 1,
+        name: 'general',
+        status: 0,
+        description: 'SpelackへようこそGeneral Channelです。',
+        author_id: 1)
