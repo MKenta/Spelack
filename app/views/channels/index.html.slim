@@ -1,0 +1,66 @@
+javascript:
+  window.nickname = '#{@nickname}';
+.no_attachment_max_width.light_theme
+  header.brand.clearfix
+    span.menu-btn
+      i.fa.fa-bars
+    ul.ts-profile-nav
+      li.ts-account
+        a href="#"
+          img.ts-avatar.hidden-side src="/images/default_avatar.png" alt=""
+          |  #{@nickname}
+          span.glyphicon.glyphicon-triangle-bottom.ml_1x[aria-hidden="true"]
+        ul
+          li
+            = link_to 'My Account', '#'
+          li
+            = link_to 'Edit Account', '#'
+          li
+            = link_to 'Logout', destroy_user_session_path, method: :delete, id: 'logout'
+    .channel_name
+      span.channel_title
+        | # general
+      a.channel_setting href="#"
+        span.glyphicon.glyphicon-cog.ml_1x[aria-hidden="true"]
+  .ts-main-content
+    nav.ts-sidebar
+      ul.ts-sidebar-menu
+        li
+          a href=search_channels_path
+            span.glyphicon.glyphicon-search[aria-hidden="true"]
+            |  Search Channel
+        li
+          a href=new_channel_path
+            span.glyphicon.glyphicon-plus[aria-hidden="true"]
+            |  Add Channel
+        li.ts-label
+          | CHANNELS (#{@channels.length})
+        li#channels
+      ul.ts-profile-nav
+        li
+          a[href="#"]
+            | Settings
+        li.ts-account
+          a[href="#"]
+            img.ts-avatar.hidden-side src="/images/default_avatar.png" alt=""
+            |  Account
+            i.fa.fa-angle-down.hidden-side
+          ul
+            li
+              = link_to 'My Account', '#'
+            li
+              = link_to 'Edit Account', '#'
+            li
+              = link_to 'Logout', destroy_user_session_path, method: :delete, id: 'logout'
+    .content-wrapper
+      .container-fluid
+        .row
+          .col-md-12
+            #messages
+    footer[style="bottom: 0px;"]
+      #footer_overlay.onboarding_overlay.hidden
+      #footer_msgs
+        #msg_preview.hidden.lato_regular
+          #msg_preview_msg.message
+        #messages-input-container[style="height: 42px;"]
+          #messageform

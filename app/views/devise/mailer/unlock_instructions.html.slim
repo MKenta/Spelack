@@ -1,0 +1,10 @@
+p
+  | こんにちは　
+  = @resource.email
+  | 　!
+p
+  | あなたのアカウントはログイン試行回数を超えるアクセスを感知したためロックされました。
+p
+  | ロックを解除するにはこちらのリンクへアクセスしてください:
+p
+  = link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token)

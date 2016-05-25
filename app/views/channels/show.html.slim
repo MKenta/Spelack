@@ -1,0 +1,17 @@
+body.clannel_boby
+  header.clannel_header
+    a href=channels_path
+      span.glyphicon.glyphicon-home.home_icon[aria-hidden="true"]
+.form-content
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        .text-center.well.row.pt-2x.pb-3x.bk-light
+          h1.text-bold.mt-4x = '# ' +  @channel.name
+          h4.mt-1x =  @channel.description
+          .mt-2x
+            -unless @joined
+              = link_to 'join', join_channels_path(id: @channel.id), class:"btn btn-warning mr_1x"
+            = link_to 'edit', edit_channel_path(@channel), class:"btn btn-success"
+            br
+          .mt-1x = link_to 'Channel検索へ戻る', search_channels_path
