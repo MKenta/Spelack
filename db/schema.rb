@@ -81,6 +81,11 @@ ActiveRecord::Schema.define(version: 20160512072602) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
+    t.string   "users",                  limit: 255
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
+    t.string   "token",                  limit: 255
+    t.string   "name",                   limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "avatar_file_name",       limit: 255

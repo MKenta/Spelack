@@ -15,6 +15,8 @@ source 'https://rubygems.org' do
   gem 'kakurenbo-puti'
   gem 'link_thumbnailer'
   gem 'mysql2', '~> 0.3.21'
+  gem 'omniauth'
+  gem 'omniauth-google-oauth2'
   gem 'paperclip'
   gem 'puma'
   gem 'rails', '4.2.4'

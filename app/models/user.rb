@@ -1,15 +1,10 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  # 機能統合した段階で以下の外部キー制約の実装を行う。
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :user_channels
   has_many :channels, through: :user_channels
   has_many :messages
-  # has_many :chats
-  # has_many :shared_files
+
 
   validates :nickname, presence: true, length: { maximum: 20 }, uniqueness: true
   validates :first_name, presence: true, length: { maximum: 30 }
@@ -17,9 +12,29 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 30 }
 
   has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' }, default_url: '/images/default_avatar.png'
-  # validates_attachment :avatar, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] }
 
   after_create do
     self.channels << Channel.find(1)
+  end
+
+  protected
+  def self.find_for_google_oauth2(auth)
+    user = User.where(email: auth.info.email).first
+
+
+    unless user
+      user = User.create(name:     auth.info.name,
+                         nickname: auth.info.name,
+                         first_name:auth.info.first_name,
+                         last_name:auth.info.last_name,
+                         confirmed_at: Time.now,
+                         provider: auth.provider,
+                         uid:      auth.uid,
+                         token:    auth.credentials.token,
+                         password: Devise.friendly_token[0, 20],
+                         email:    auth.info.email)
+    end
+    user
+
   end
 end

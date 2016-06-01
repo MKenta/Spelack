@@ -9,7 +9,7 @@ body.login-page.bk-img.bk-fixed
             .col-md-8.col-md-offset-2
               h4
                 | Sign up with your google account:
-              a.btn.btn-block.btn-social.btn-google[style="line-height: 18px;"]
+              a.btn.btn-block.btn-social.btn-google[style="line-height: 18px;", href=user_omniauth_authorize_path(:google_oauth2)]
                 span.fa.fa-google
                 span.text-lg  Sign up with Google
               hr.or

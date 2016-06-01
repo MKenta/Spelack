@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :channels, only: :index
     resources :users, only: :index
   end
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: {
+    registrations: 'registrations',
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
   resources :channels
   resources :messages, only: %i(create update destroy)
   resources :search_channels, only: :index
