@@ -22,4 +22,12 @@ class User < ActiveRecord::Base
   after_create do
     self.channels << Channel.find(1)
   end
+
+  def self.search(query, current_user)
+    if query
+      User.where([current_user.id + ' != id AND nickname LIKE ? ', "#{query}%"])
+    else
+      User.where.not(id: current_user.id)
+    end
+  end
 end

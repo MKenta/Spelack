@@ -3,7 +3,7 @@ lock '3.5.0'
 
 set :application, 'Spelack'
 set :repo_url, 'git@github.com:MKenta/Spelack.git'
-set :branch, 'future'
+set :branch, 'test-1'
 set :deploy_to, '/var/www/Spelack'
 set :log_level, :debug
 set :rbenv_type, :user

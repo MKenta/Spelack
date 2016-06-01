@@ -1,0 +1,25 @@
+body.clannel_boby
+  header.clannel_header
+    a href=channels_path
+      span.glyphicon.glyphicon-home.home_icon[aria-hidden="true"]
+.form-content
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        .text-center.well.row.pt-2x.pb-3x.bk-light
+          h1.text-bold.mt-4x
+            | Browse all #{@users.length} users
+          = form_tag search_channels_path, method: 'get', class:"mt"
+            .input-group
+              = text_field_tag :query, params[:query], class:"form-control"
+              span.input-group-btn
+                button.btn.btn-primary[type="submit"]
+                  i.fa.fa-search
+
+        .well.row.pt-2x.pb-3x.bk-light
+          .channel_browser_divider
+          - @users.each do |user|
+            = link_to direct_messages_path(user: {user_id: user.id, nickname: user.nickname}), method: :post,class: 'channel_browser_row' do
+              .channel_browser_row_header.overflow_ellipsis
+                | #{user.nickname}
+

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search_users/index'
+
   root 'users#index'
   namespace 'api' do
     get 'messages/index'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   resources :messages, only: %i(create update destroy)
   resources :search_channels, only: :index
   resources :join_channels, only: :index
+  resources :direct_messages, only: %i(index create)
   get 'users/after_sign_up'
 
   mount ActionCable.server => '/cable'
